@@ -41,6 +41,10 @@ public class HelloJni extends AppCompatActivity {
         tv.append("\n");
         tv.append(callJava());
     }
+
+    public native void sayHello(float test);
+    public native void sayHello2(int test);
+
     /* A native method that is implemented by the
      * 'hello-jni' native library, which is packaged
      * with this application.
@@ -58,10 +62,6 @@ public class HelloJni extends AppCompatActivity {
      * java.lang.UnsatisfiedLinkError exception !
      */
     public native String  callJava();
-
-    public native void sayHello(float test);
-    public native void sayHello2(int test);
-
     public String callFromNative(){
         return "This is from Java!!";
     }
