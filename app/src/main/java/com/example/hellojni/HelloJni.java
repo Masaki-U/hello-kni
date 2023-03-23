@@ -34,9 +34,9 @@ public class HelloJni extends AppCompatActivity {
         TextView tv = (TextView)findViewById(R.id.hello_textview);
         tv.setText(stringFromJNI());
 
-        sayHello();
+        sayHello(456F);
 
-        sayHello2();
+        sayHello2(456);
 
         tv.append("\n");
         tv.append(callJava());
@@ -59,8 +59,8 @@ public class HelloJni extends AppCompatActivity {
      */
     public native String  callJava();
 
-    public native void sayHello();
-    public native void sayHello2();
+    public native void sayHello(float test);
+    public native void sayHello2(int test);
 
     public String callFromNative(){
         return "This is from Java!!";
@@ -72,6 +72,6 @@ public class HelloJni extends AppCompatActivity {
      * installation time by the package manager.
      */
     static {
-        System.loadLibrary(BuildConfig.JNI_SHARED_LIB_NAME_PREFIX);
+        System.loadLibrary("knlib");
     }
 }
